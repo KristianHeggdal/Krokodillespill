@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div">Score <span id="score">0</span></div>
+    <div>bilde av krokodille</div>
+    <div id="number1"></div>
+    <input id="input" type="text"></input>
+    <div id="number2"></div>
+    <button onclick="submit()">Submit</button>
+<button onclick="reset()">Reset</button>
+
+<script>
+
+let number1 = 0
+let number2 = 0
+let score = 0
+
+
+function getRandomNumber(){
+return Math.round(Math.random()*10);
+}
+
+function updateNumbers(){
+number1=getRandomNumber();
+number2=getRandomNumber();
+document.getElementById("number1").innerHTML = number1;
+document.getElementById("number2").innerHTML = number2;
+
+}
+
+updateNumbers()
+
+function submit(){
+    let correct=false
+    const input=document.getElementById("input").value;
+    if (input === '>' && number1 > number2){correct=true;}
+    else if(input==='<' && number1 < number2){correct=true;}
+else if (input=== '=' &&number1===number2){correct=true;}
+    if (correct){
+        score++;
+        document.getElementById("score").innerHTML=score;
+    } else {
+        score--;
+        document.getElementById("score").innerHTML=score
+    } 
+    updateNumbers();
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+<style>
+
+.div{
+border: 2px solid;
+background-color: rgb(235, 218, 218);
+width: 60px;
+padding: 10px;
+
+}
+
+
+#number1{
+   font-size: 250%;
+   text-align: center;
+    border:1px solid;
+    width: 50px;
+    height: 50px;
+padding: 10px;
+background-color: rgb(235, 218, 218)
+
+;
+
+
+}
+#number2{
+    font-size: 250%;
+    text-align: center;
+    border:1px solid;
+    width: 50px;
+    height: 50px;
+padding: 10px;
+background-color:rgb(235, 218, 218)
+;
+}
+ #input{
+    border:1px solid;
+    width: 20px;
+padding: 10px;
+
+
+ }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
